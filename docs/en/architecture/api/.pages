@@ -1,7 +1,0 @@
-title: api 
-order: 
-  - openapi-spec.md 
-  - openapi.md 
-  - rate-limiting.md 
-  - spec-format.md 
-  - versioning.md 

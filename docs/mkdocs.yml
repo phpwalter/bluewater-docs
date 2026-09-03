@@ -1,25 +1,109 @@
-site_name: Bluewater Documentation
-docs_dir: docs
+site_name: Bluewater Framework Documentation
+site_description: Architecture and technical documentation for Bluewater Framework 8
+site_url: https://phpwalter.github.io/bluewater-docs/
+repo_url: https://github.com/phpwalter/bluewater-docs
+repo_name: phpwalter/bluewater-docs
+docs_dir: en
+site_dir: ../site
+strict: true
+
+# LocaleGuard links translated source files outside this English-only docs_dir.
+# tools/check-docs.py validates those repository-local links as hard failures.
+validation:
+  links:
+    not_found: info
 
 theme:
   name: material
+  language: en
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - toc:
+      permalink: true
 
 nav:
   - Home: index.md
+  - About Bluewater: about-bluewater.md
   - Architecture:
-      - System Overview: architecture/system-overview.md
-      - Module Breakdown: architecture/modules.md
-      - Multi-Tenant Design: architecture/multi-tenant.md
-      - Security Principles: architecture/security.md
-  - Technical:
-      - Getting Started: technical/getting-started.md
-      - Configuration Guide: technical/configuration.md
-      - Extension & Integration: technical/extending.md
-      - Deployment & Operations: technical/deployment.md
-      - FAQ & Troubleshooting: technical/faq.md
-  - API Reference:
-      - API Docs Home: phpdoc/index.html
-      - Class Reference: phpdoc/classes/index.html
-  - Contributing: ../CONTRIBUTING.md
-  - Code of Conduct: ../CODE_OF_CONDUCT.md
-  - Security Policy: ../SECURITY.md
+      - Overview: architecture/index.md
+      - API: architecture/api/index.md
+      - Core:
+          - Overview: architecture/core/index.md
+          - Application Lifecycle: architecture/core/application-lifecycle.md
+          - Dependency Injection: architecture/core/dependency-injection.md
+          - Extensions: architecture/core/extensions.md
+      - Configuration: architecture/configuration/index.md
+      - Data: architecture/data/index.md
+      - HTTP:
+          - Overview: architecture/http/index.md
+          - Routing and Dispatch: architecture/http/routing-and-dispatch.md
+          - Middleware: architecture/http/middleware.md
+          - Serialization: architecture/http/serialization.md
+          - Validation: architecture/http/validation.md
+      - Runtime:
+          - Overview: architecture/runtime/index.md
+          - Application Isolation: architecture/runtime/application-isolation.md
+          - Deployment: architecture/runtime/deployment.md
+          - Performance: architecture/runtime/performance.md
+      - Security:
+          - Overview: architecture/security/index.md
+          - Authentication: architecture/security/authentication.md
+      - Testing: architecture/testing/index.md
+      - Governance:
+          - Overview: architecture/governance/index.md
+          - Terminology: architecture/governance/terminology.md
+          - Decisions:
+              - Decision Index: architecture/governance/decisions/index.md
+              - Decision Template: architecture/governance/decisions/0000-template.md
+  - Technical Guides:
+      - Overview: technical/index.md
+      - Setup:
+          - Overview: technical/setup/index.md
+          - Host Layout: technical/setup/host-layout.md
+          - Configuration: technical/setup/configuration.md
+      - Development:
+          - Overview: technical/development/index.md
+          - Architecture: technical/development/architecture.md
+          - Configuration: technical/development/configuration.md
+          - Routing: technical/development/routing.md
+          - Dependency Injection: technical/development/dependency-injection.md
+          - Runtime: technical/development/runtime.md
+          - Contributing: technical/development/contributing.md
+      - Usage:
+          - Overview: technical/usage/index.md
+          - Routing: technical/usage/routing.md
+          - Dependency Injection: technical/usage/dependency-injection.md
+          - Validation: technical/usage/validation.md
+          - Responses: technical/usage/responses.md
+          - Middleware: technical/usage/middleware.md
+          - Authentication: technical/usage/authentication.md
+          - Database: technical/usage/database.md
+          - Extensions: technical/usage/extensions.md
+          - OpenAPI: technical/usage/openapi.md
+          - Logging: technical/usage/logging.md
+      - Testing:
+          - Overview: technical/testing/index.md
+          - Applications: technical/testing/applications.md
+          - Framework: technical/testing/framework.md
+      - Deployment: technical/deployment/index.md
+      - References:
+          - Overview: technical/references/index.md
+          - Public API: technical/references/public-api.md
+          - Environment and Files: technical/references/environment-and-files.md
+  - Contributing:
+      - Documentation: contribute/documentation.md
+      - Localization: contribute/localization.md
+      - Document Template: _templates/document.md

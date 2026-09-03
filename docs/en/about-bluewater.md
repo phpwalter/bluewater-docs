@@ -46,9 +46,9 @@ Bluewater requires PHP 8.3 or newer. Continuous integration is configured for PH
 
 ## 📚 Related Documents
 
-- [System overview](architecture/system-overview.md)
+- [System overview](architecture/core/index.md)
 - [Architecture index](architecture/index.md)
-- [Application developer guide](technical/application-developers.md)
+- [Application developer guide](technical/usage/index.md)
 
 ---
 

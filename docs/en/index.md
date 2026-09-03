@@ -26,9 +26,9 @@ This site documents Bluewater Framework 8 as implemented on the `build/bluewater
 ## Start here
 
 - [About Bluewater](about-bluewater.md) explains the framework’s purpose and boundaries.
-- [System Overview](architecture/system-overview.md) describes the implemented architecture.
-- [Application Developer Guide](technical/application-developers.md) explains how to build an application.
-- [Core Developer Guide](technical/core-developers.md) explains how to maintain the framework.
+- [System Overview](architecture/core/index.md) describes the implemented architecture.
+- [Application Developer Guide](technical/usage/index.md) explains how to build an application.
+- [Core Developer Guide](technical/development/index.md) explains how to maintain the framework.
 
 ## Current implementation boundary
 

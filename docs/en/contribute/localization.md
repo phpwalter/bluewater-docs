@@ -29,10 +29,10 @@ This guide explains how English, Spanish, German, and Japanese documentation is 
 English is canonical under `docs/en`. Translations mirror the path relative to that root:
 
 ```text
-docs/en/architecture/system-overview.md
-docs/i18n/es/architecture/system-overview.md
-docs/i18n/de/architecture/system-overview.md
-docs/i18n/ja/architecture/system-overview.md
+docs/en/architecture/core/index.md
+docs/i18n/es/architecture/core/index.md
+docs/i18n/de/architecture/core/index.md
+docs/i18n/ja/architecture/core/index.md
 ```
 
 LocaleGuard identifies a document by this relative path. It measures existence and governance state; it does not translate or judge translation quality.

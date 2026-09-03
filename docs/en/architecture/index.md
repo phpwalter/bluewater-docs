@@ -24,18 +24,19 @@
 
 This index organizes the implemented Bluewater v8 architecture and replaces the former duplicate, placeholder, and aspirational page trees.
 
-## Architecture inventory
+## Architecture sections
 
-| Area | Responsibility |
+| Section | Responsibility |
 |---|---|
-| Host and application | Select, validate, construct, and boot an isolated application. |
-| Configuration | Merge guarded framework defaults with type-compatible application overrides. |
-| Routing | Discover endpoint files, reject conflicts, compile caches, and match requests. |
-| Dispatch | Bind request data and services, validate DTOs, invoke handlers, and serialize results. |
-| Middleware | Compose global and route-specific request policies in deterministic order. |
-| Authentication | Select one named credential provider and produce an immutable identity or denial. |
-| Data access | Expose prepared PDO operations and transaction handling without an ORM. |
-| Interoperability | Provide PSR-3, PSR-7, PSR-11, and PSR-15 integration boundaries. |
+| [API](api/index.md) | Describe the OpenAPI contract exposed by implemented routes and schemas. |
+| [Core](core/index.md) | Select, construct, boot, and extend an isolated application. |
+| [Configuration](configuration/index.md) | Merge guarded defaults with type-compatible application overrides. |
+| [Data](data/index.md) | Provide prepared PDO operations and transaction handling without an ORM. |
+| [HTTP](http/index.md) | Route requests, compose middleware, validate input, dispatch handlers, and serialize responses. |
+| [Runtime](runtime/index.md) | Define application isolation, deployment topology, and performance controls. |
+| [Security](security/index.md) | Enforce trust boundaries, authentication, and fail-closed behavior. |
+| [Testing](testing/index.md) | Verify framework behavior and application integration. |
+| [Governance](governance/index.md) | Maintain shared terminology and architecture decision records. |
 
 ## Deliberate exclusions
 
@@ -43,8 +44,8 @@ Bluewater does not implement a service mesh, API gateway appliance, message brok
 
 ## 📚 Related Documents
 
-- [System overview](system-overview.md)
-- [Application lifecycle](application-lifecycle.md)
+- [System overview](core/index.md)
+- [Application lifecycle](core/application-lifecycle.md)
 - [Technical guides](../technical/index.md)
 
 ---

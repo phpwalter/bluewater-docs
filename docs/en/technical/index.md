@@ -2,52 +2,50 @@
 **<img src="../../_generated/assets/flags/us.svg" alt="English" width="20" height="auto"> English** | <img src="../../_generated/assets/flags/es.svg" alt="Español" width="20" height="auto"> Español *(missing)* | <img src="../../_generated/assets/flags/de.svg" alt="Deutsch" width="20" height="auto"> Deutsch *(missing)* | <img src="../../_generated/assets/flags/jp.svg" alt="日本語" width="20" height="auto"> 日本語 *(missing)*
 <!-- locale-guard:language-bar:end -->
 
-# Technical Guides – Bluewater Framework
+# Technical Documentation – Bluewater Framework
 
-📄 **File:** `docs/en/technical/index.md`  
-📅 **Status:** Published  
-🏷️ **Tags:** technical, index, source-ownership  
-🔖 **Version:** 8.0.0  
-📅 **Date:** 2026-09-03  
-🌍 **Scope:** Published application and core developer guidance  
-🤝 **Contributors:** Framework and documentation maintainers  
-👨‍💻 **Author:** Bluewater Documentation Team
+📄 **File:** `docs/en/technical/index.md`
+📅 **Status:** Active
+🏷️ **Tags:** technical, index, bluewater-v8
+🔖 **Version:** 8.0.0
+📅 **Date:** 2026-09-03
+🌍 **Scope:** Framework-owned technical documentation organized by developer task
+🤝 **Contributors:** Bluewater framework maintainers
+👨‍💻 **Author:** Bluewater Framework Team
 
 ---
 
 > ### 🪶 **Bluewater Principle**
-> *Technical guidance originates beside the implementation it describes.*
+> *Technical guidance lives beside the implementation that enforces it.*
 
 ---
 
 ## 📌 Purpose
 
-This index publishes technical guides owned by `bluewater-framework/build/bluewater-v8`. Publication copies are synchronized only after the framework source documents are updated.
+This index organizes the authoritative Bluewater v8 technical documentation maintained in the framework repository.
 
-## Available guides
+## Documentation sections
 
-- The [Application Developer Guide](application-developers.md) covers installation, host layout, endpoints, middleware, authentication, data access, and deployment.
-- The [Core Developer Guide](core-developers.md) covers framework boundaries, subsystem development, quality gates, compatibility, and contribution workflow.
+| Section | Contents |
+|---|---|
+| [Setup](setup/index.md) | Requirements, installation, host layout, and configuration. |
+| [Development](development/index.md) | Framework architecture, subsystem maintenance, runtime work, and contributions. |
+| [Usage](usage/index.md) | Endpoints, routing, services, validation, responses, middleware, authentication, data, extensions, OpenAPI, and logging. |
+| [Testing](testing/index.md) | Application and framework test expectations. |
+| [Deployment](deployment/index.md) | PHP-FPM and multi-application production guidance. |
+| [References](references/index.md) | Public API and runtime configuration references. |
 
-## Synchronization
-
-From the documentation repository with a sibling framework checkout:
-
-```bash
-python tools/sync-framework-docs.py ../bluewater-framework
-```
-
-The synchronization tool adapts repository-relative metadata and license links while preserving framework-owned technical content.
+The published copies in `bluewater-docs` adapt repository-relative metadata and documentation licensing without changing the technical contract.
 
 ## 📚 Related Documents
 
-- [Architecture index](../architecture/index.md)
-- [Documentation contribution guide](../contribute/documentation.md)
-- [Bluewater Framework repository](https://github.com/phpwalter/bluewater-framework)
+- [Framework overview](../about-bluewater.md)
+- [Setup](setup/index.md)
+- [Usage](usage/index.md)
 
 ---
 
-This documentation is licensed under the [MIT License](../../../LICENSE).
+This published documentation is licensed under the [MIT License](../../../LICENSE). Bluewater Framework source code is separately licensed under OSL-3.0.
 
 ---
 

@@ -1,0 +1,3 @@
+[submodule "tools/locale-guard"]
+	path = tools/locale-guard
+	url = https://github.com/phpwalter/locale-guard.git

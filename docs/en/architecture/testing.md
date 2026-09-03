@@ -1,134 +1,58 @@
-### 📘 `docs/architecture/testing.md` — Testing Architecture
+<!-- locale-guard:language-bar:start -->
+**<img src="../../_generated/assets/flags/us.svg" alt="English" width="20" height="auto"> English** | <img src="../../_generated/assets/flags/es.svg" alt="Español" width="20" height="auto"> Español *(missing)* | <img src="../../_generated/assets/flags/de.svg" alt="Deutsch" width="20" height="auto"> Deutsch *(missing)* | <img src="../../_generated/assets/flags/jp.svg" alt="日本語" width="20" height="auto"> 日本語 *(missing)*
+<!-- locale-guard:language-bar:end -->
 
-# 🧪 Testing Architecture – Bluewater Framework
+# Testing Architecture – Bluewater Framework
 
-📄 **File:** `docs/architecture/testing.md`  
-📅 **Status:** Draft  
-🏷️ **Tags:** testing, QA, coverage  
-🔖 **Version:** 0.1  
-🌍 **Scope:** Define the testing layers, tools, and strategies used across the Bluewater Framework to ensure reliable, high-quality software  
-🤝 **Contributors:** – Developers, QA engineers, CI/CD integrators  
-👨‍💻 **Author:** Walter Torres  
+📄 **File:** `docs/en/architecture/testing.md`  
+📅 **Status:** Published  
+🏷️ **Tags:** architecture, testing, phpunit, quality  
+🔖 **Version:** 8.0.0  
+📅 **Date:** 2026-09-03  
+🌍 **Scope:** Automated verification layers and required quality gates  
+🤝 **Contributors:** Framework architects and maintainers  
+👨‍💻 **Author:** Bluewater Documentation Team
 
 ---
 
-> ### 🪶 **Bluewater Principle**  
-> *Tests should be fast, faithful, and foundational — without them, trust is guesswork.*
+> ### 🪶 **Bluewater Principle**
+> *Framework behavior is trusted only when tests exercise its public contract.*
 
 ---
 
 ## 📌 Purpose
 
-This document describes how tests are structured, what layers exist, and how teams maintain quality across services and environments.
+This document describes the current Bluewater v8 test organization and the checks required for framework changes.
 
----
+## Test layers
 
-## 🧱 Testing Layers
+Unit and focused subsystem tests cover authentication, configuration, the container, logging, routing, and validation. `tests/Integration/App1Test.php` boots and exercises the reference application to verify that public subsystems work together from an application developer’s perspective.
 
-| Layer         | Scope                                       | Runs In             |
-|---------------|---------------------------------------------|---------------------|
-| Unit          | Individual functions/classes                | Local, CI           |
-| Integration   | Interactions between modules/services       | Local, CI           |
-| Functional    | End-to-end functionality per feature        | Local, QA           |
-| Contract      | Schema/API compatibility                    | CI, Gateway         |
-| Smoke         | Deployment validation (sanity)              | CI, Staging         |
-| E2E           | Full user journey tests (e.g. Cypress)      | QA, Pre-prod        |
+## Quality command
 
-<!-- Diagram: testing-pyramid -->
-![Testing Pyramid](../assets/diagrams/architecture/testing-pyramid.png)
+The framework’s Composer `check` script runs syntax validation, PSR-12 style checks, PHPStan analysis, and PHPUnit. CI executes the suite on PHP 8.3 and PHP 8.4.
 
----
+```bash
+composer install
+composer check
+```
 
-## 🛠️ Tools and Frameworks
+Changes to an application-facing behavior should update focused tests and the reference application when an end-to-end contract is affected. Documentation examples must remain consistent with the tested public API.
 
-| Purpose        | Tool                         |
-|----------------|------------------------------|
-| Unit testing   | Jest, Mocha                  |
-| Integration    | Supertest, Axios             |
-| Assertions     | Chai, Expect                 |
-| E2E            | Cypress, Playwright          |
-| Contract Tests | Postman, Pact                |
-| Coverage       | Istanbul (nyc), Coverage CLI |
+## Environment note
 
-All test runners are NPM-based and available in `package.json`.
-
----
-
-## 📂 Test File Structure
-
-Recommended per-service layout:
-
-```txt
-/service/
-├── src/
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── e2e/
-└── .test.env
-````
-
-Each test suite should:
-
-* Use its own env file
-* Start/teardown any mocks or test DBs
-
----
-
-## 🧪 Mocking and Fixtures
-
-Mock external dependencies where needed using:
-
-* `jest.mock(...)`
-* Stubs or fakes for DB/cache
-* Static JSON fixtures in `/tests/fixtures/`
-
-Prefer integration tests over excessive mocking.
-
----
-
-## 🔁 Test Execution in CI
-
-CI will:
-
-1. Lint and build services
-2. Run all unit and integration tests
-3. Deploy to test environment
-4. Run smoke + contract tests
-5. Optionally run full E2E on merge
-
-Each step must pass to continue the pipeline.
-
----
-
-## 🧼 Tenant-Safe Testing
-
-In multi-tenant setups:
-
-* Test data must be isolated per tenant
-* Run with scoped tenants: `X-Tenant-ID: testA`
-* Cleanup routines must reset only relevant data
-
-Avoid using shared tenants between test runs.
-
----
-
-## 📊 Coverage Metrics
-
-Each service should:
-
-* Generate coverage report (`/coverage/`)
-* Target **80%+ line coverage**
-* Include: statements, branches, functions, lines
-
-Output integrated into CI artifacts and dashboards.
-
----
+The documentation build validates links and structure independently. PHP verification still requires a PHP 8.3+ environment with Composer and the extensions declared by the framework.
 
 ## 📚 Related Documents
 
-* [CI/CD Pipeline](../deployment/ci-cd.md)
-* [Service Architecture](services.md)
-* [API Architecture](api.md)
+- [Core developer guide](../technical/core-developers.md)
+- [Routing and dispatch](routing-and-dispatch.md)
+- [Security](security.md)
 
 ---
+
+This documentation is licensed under the [MIT License](../../../LICENSE).
+
+---
+
+*Last updated: 2026-09-03*

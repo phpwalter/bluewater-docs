@@ -1,125 +1,51 @@
-### 📘 `docs/architecture/performance.md` — Performance Architecture
+<!-- locale-guard:language-bar:start -->
+**<img src="../../_generated/assets/flags/us.svg" alt="English" width="20" height="auto"> English** | <img src="../../_generated/assets/flags/es.svg" alt="Español" width="20" height="auto"> Español *(missing)* | <img src="../../_generated/assets/flags/de.svg" alt="Deutsch" width="20" height="auto"> Deutsch *(missing)* | <img src="../../_generated/assets/flags/jp.svg" alt="日本語" width="20" height="auto"> 日本語 *(missing)*
+<!-- locale-guard:language-bar:end -->
 
-# ⚡ Performance Strategy – Bluewater Framework
+# Performance Architecture – Bluewater Framework
 
-📄 **File:** `docs/architecture/performance.md`  
-📅 **Status:** Draft  
-🏷️ **Tags:** performance, benchmarks, scalability  
-🔖 **Version:** 0.1  
-🌍 **Scope:** Define performance expectations, metrics, and optimization strategies across services in the Bluewater Framework  
-🤝 **Contributors:** – Developers, DevOps, SREs, QA engineers  
-👨‍💻 **Author:** Walter Torres  
+📄 **File:** `docs/en/architecture/performance.md`  
+📅 **Status:** Published  
+🏷️ **Tags:** architecture, performance, caching, determinism  
+🔖 **Version:** 8.0.0  
+📅 **Date:** 2026-09-03  
+🌍 **Scope:** Implemented request-path optimizations and measurement boundaries  
+🤝 **Contributors:** Framework architects and maintainers  
+👨‍💻 **Author:** Bluewater Documentation Team
 
 ---
 
-> ### 🪶 **Bluewater Principle**  
-> *Measure before you optimize. Predictability beats speed when systems scale.*
+> ### 🪶 **Bluewater Principle**
+> *Optimize repeated framework work, then measure applications under representative load.*
 
 ---
 
 ## 📌 Purpose
 
-This document outlines the performance posture of Bluewater services—targeting consistent response times, predictable scaling, and operational metrics that support quality of service (QoS) at scale.
+This document explains the performance mechanisms present in Bluewater v8 without asserting unmeasured throughput claims.
 
----
+## Implemented optimizations
 
-## ⏱️ Baseline Performance Targets
+Route reflection and endpoint discovery are skipped when the route fingerprint matches the compiled PHP cache. Configuration parsing, recursive merge, reference resolution, and validation are skipped when the source fingerprint matches the compiled configuration cache. Both caches are application-local and written atomically.
 
-| Category          | Target                 |
-|-------------------|------------------------|
-| API Latency (P95) | ≤ 250ms                |
-| Auth Token Verify | ≤ 50ms                 |
-| DB Query (avg)    | ≤ 100ms                |
-| Cold Boot Time    | ≤ 3 seconds            |
-| Message Queue Lag | ≤ 500ms                |
-| Health-check TTL  | < 1 second (readiness) |
+Normal requests therefore reuse OPcache-friendly PHP arrays while preserving automatic invalidation when relevant source files change.
 
-Targets may vary slightly per service class (core, edge, batch).
+## Measurement boundary
 
----
+Bluewater does not publish a universal requests-per-second claim. Application middleware, authentication, serializers, database access, logging, endpoint behavior, FPM settings, OPcache, hardware, and network topology materially affect results.
 
-## 🔁 Load Profiles
-
-Three tiers of expected load:
-
-| Tier       | Users  | Req/sec | Notes                      |
-|------------|--------|---------|----------------------------|
-| Dev/UAT    | < 10   | < 5     | No load optimization       |
-| Staging    | 10–100 | < 20    | Sanity + stress testing    |
-| Production | 1K+    | 100+    | SLA monitored, autoscaling |
-
----
-
-## 📉 Bottleneck Classifications
-
-Common sources of slowdowns:
-
-- DB n+1 queries  
-- External API retries  
-- High object graph hydration  
-- Synchronous I/O at scale  
-- Per-request config or token parsing
-
-Mitigation:
-- Caching (memory, Redis)  
-- Background workers for async ops  
-- Indexed, bounded DB queries  
-- Slim API payloads  
-
----
-
-## ⚙️ Instrumentation Strategy
-
-All performance-critical services must emit:
-
-- Request duration (`histogram`)  
-- Error rate by route/code (`counter`)  
-- Resource consumption (CPU/mem via node exporter)  
-- Queue metrics (depth, lag)
-
-Metrics must be exposed via `/metrics` and tagged by `env`, `service`, and `tenant`.
-
----
-
-## 📈 Benchmarking & Load Testing
-
-Each service should have a `load/` folder with:
-
-- `k6` or `Artillery` scripts  
-- Realistic data + auth tokens  
-- CI-compatible test mode
-
-Benchmarks must be:
-- Repeatable  
-- Versioned  
-- Run pre-release (especially breaking changes)
-
-<!-- Diagram: performance-benchmark-flow -->
-![Performance Benchmark Flow](../assets/diagrams/architecture/performance-benchmark-flow.png)
-
----
-
-## 📦 Scaling Principles
-
-- Stateless services should scale horizontally  
-- Use autoscaling based on:
-  - Request volume
-  - CPU/memory thresholds
-  - Queue depth or lag
-- Prefer vertical isolation (per tenant/group)
-
-Avoid:
-- Session stickiness  
-- Global mutex locks  
-- Large shared caches
-
----
+Benchmarks should record PHP version, enabled extensions, runtime configuration, application route, payload, concurrency, warm-up, cache state, storage dependencies, latency percentiles, error rate, and resource consumption. Performance regressions should be tied to repeatable scenarios rather than isolated local timings.
 
 ## 📚 Related Documents
 
-- [Deployment Strategy](deployment.md)  
-- [Observability](observability.md)  
-- [Testing Architecture](testing.md)  
-- [Service Architecture](services.md)  
+- [Configuration](configuration.md)
+- [Routing and dispatch](routing-and-dispatch.md)
+- [Testing](testing.md)
 
 ---
+
+This documentation is licensed under the [MIT License](../../../LICENSE).
+
+---
+
+*Last updated: 2026-09-03*

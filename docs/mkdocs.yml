@@ -1,25 +1,64 @@
-site_name: Bluewater Documentation
-docs_dir: docs
+site_name: Bluewater Framework Documentation
+site_description: Architecture and technical documentation for Bluewater Framework 8
+site_url: https://phpwalter.github.io/bluewater-docs/
+repo_url: https://github.com/phpwalter/bluewater-docs
+repo_name: phpwalter/bluewater-docs
+docs_dir: en
+site_dir: ../site
+strict: true
 
 theme:
   name: material
+  language: en
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - toc:
+      permalink: true
 
 nav:
   - Home: index.md
+  - About Bluewater: about-bluewater.md
   - Architecture:
+      - Overview: architecture/index.md
       - System Overview: architecture/system-overview.md
-      - Module Breakdown: architecture/modules.md
-      - Multi-Tenant Design: architecture/multi-tenant.md
-      - Security Principles: architecture/security.md
-  - Technical:
-      - Getting Started: technical/getting-started.md
-      - Configuration Guide: technical/configuration.md
-      - Extension & Integration: technical/extending.md
-      - Deployment & Operations: technical/deployment.md
-      - FAQ & Troubleshooting: technical/faq.md
-  - API Reference:
-      - API Docs Home: phpdoc/index.html
-      - Class Reference: phpdoc/classes/index.html
-  - Contributing: ../CONTRIBUTING.md
-  - Code of Conduct: ../CODE_OF_CONDUCT.md
-  - Security Policy: ../SECURITY.md
+      - Application Lifecycle: architecture/application-lifecycle.md
+      - Application Isolation: architecture/application-isolation.md
+      - Routing and Dispatch: architecture/routing-and-dispatch.md
+      - Middleware: architecture/middleware.md
+      - Dependency Injection: architecture/dependency-injection.md
+      - Configuration: architecture/configuration.md
+      - Authentication: architecture/authentication.md
+      - HTTP and Serialization: architecture/http-and-serialization.md
+      - Data Access: architecture/data-access.md
+      - Validation: architecture/validation.md
+      - OpenAPI: architecture/openapi.md
+      - Extensions: architecture/extensions.md
+      - Runtime and Deployment: architecture/runtime-and-deployment.md
+      - Security: architecture/security.md
+      - Testing: architecture/testing.md
+      - Performance: architecture/performance.md
+      - Terminology: architecture/terminology.md
+      - Decisions:
+          - Decision Index: architecture/decisions/index.md
+          - Decision Template: architecture/decisions/0000-template.md
+  - Technical Guides:
+      - Overview: technical/index.md
+      - Application Developers: technical/application-developers.md
+      - Core Developers: technical/core-developers.md
+  - Contributing:
+      - Documentation: contribute/documentation.md
+      - Localization: contribute/localization.md
+      - Document Template: _templates/document.md

@@ -1,24 +1,56 @@
-### 📘 `docs/architecture/terminology.md` — Reference
+<!-- locale-guard:language-bar:start -->
+**<img src="../../_generated/assets/flags/us.svg" alt="English" width="20" height="auto"> English** | <img src="../../_generated/assets/flags/es.svg" alt="Español" width="20" height="auto"> Español *(missing)* | <img src="../../_generated/assets/flags/de.svg" alt="Deutsch" width="20" height="auto"> Deutsch *(missing)* | <img src="../../_generated/assets/flags/jp.svg" alt="日本語" width="20" height="auto"> 日本語 *(missing)*
+<!-- locale-guard:language-bar:end -->
 
-# 📘 Appendix – Terminology Reference
+# Terminology – Bluewater Framework
 
-📄 **File:** `docs/architecture/terminology.md`  
+📄 **File:** `docs/en/architecture/terminology.md`  
 📅 **Status:** Published  
-🏷️ **Tags:** glossary, definitions, reference  
-🔖 **Version:** 1.0  
-📦 **Scope:** 📦 Internal – Developers, architects, technical writers  
-👨‍💻 **Author:** Bluewater Team
+🏷️ **Tags:** architecture, glossary, terminology  
+🔖 **Version:** 8.0.0  
+📅 **Date:** 2026-09-03  
+🌍 **Scope:** Canonical terms used throughout Bluewater documentation  
+🤝 **Contributors:** Framework architects and maintainers  
+👨‍💻 **Author:** Bluewater Documentation Team
 
 ---
 
-## 🔤 Glossary of Key Terms
+> ### 🪶 **Bluewater Principle**
+> *Shared vocabulary prevents architectural boundaries from becoming ambiguous.*
 
-| Term                | Definition                                                                                                                                                                                                                                                                                                                                                               |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Boot**            | The initialization phase of the framework lifecycle, from process start to readiness. Bluewater targets a boot time under 50ms with PHP opcache enabled.                                                                                                                                                                                                                 |
-| **Stateless-Ready** | Indicates that the framework is designed without server-side session state, supporting horizontal scaling and deployment in serverless or containerized environments.                                                                                                                                                                                                    |
-| **Compiled Map**    | A static routing lookup table generated at build time, enabling constant-time route resolution. Stored under the `cache/` directory for runtime efficiency.                                                                                                                                                                                                              |
-| **Middleware**      | [PSR-15](https://www.php-fig.org/psr/psr-15/) compliant components that wrap HTTP requests/responses. Used for cross-cutting concerns like authentication, rate limiting, or logging.                                                                                                                                                                                    |
-| **Dispatcher**      | A [PSR-15](https://www.php-fig.org/psr/psr-15/) compliant controller that sequences and executes middleware before passing control to the route handler.                                                                                                                                                                                                                 |
-| **Responder**       | A component responsible for generating consistent HTTP responses, typically in JSON, adhering to a standard schema.                                                                                                                                                                                                                                                      |
-| **PSR Compliance**  | Adherence to PHP-FIG standards (e.g., [PSR-1](https://www.php-fig.org/psr/psr-2/), [PSR-4]((https://www.php-fig.org/psr/psr-4/)), [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-11](https://www.php-fig.org/psr/psr-11/), [PSR-15](https://www.php-fig.org/psr/psr-15/), [PSR-17](https://www.php-fig.org/psr/psr-17/)) for maximum interoperability and modularity. |
+---
+
+## 📌 Purpose
+
+This glossary defines terms whose precise meaning matters when maintaining or integrating Bluewater v8.
+
+## Terms
+
+| Term | Meaning |
+|---|---|
+| Application | One isolated Bluewater API with its own root, namespace, configuration, endpoints, cache, logs, and container. |
+| Host | Factory that locates, validates, constructs, and boots named applications. |
+| Endpoint | Application class discovered from an endpoint file and containing HTTP handler methods. |
+| Route | Immutable compiled mapping of HTTP method and path to one endpoint method and middleware chain. |
+| Handler | A public endpoint method whose name or attributes define an HTTP operation. |
+| Directory middleware | Middleware inherited from `_middleware.php` files along an endpoint directory path. |
+| DTO | Application data-transfer object hydrated from an array request body. |
+| Extension | Explicit two-phase application integration implementing register and boot callbacks. |
+| Runtime adapter | Boundary that creates Bluewater requests and emits Bluewater responses. |
+| Identity | Immutable authenticated subject, claims, and normalized unique scopes. |
+| Problem response | RFC 7807-compatible JSON response used for framework error boundaries. |
+| Compiled cache | Application-local PHP representation of validated routes or configuration. |
+
+## 📚 Related Documents
+
+- [Architecture index](index.md)
+- [System overview](system-overview.md)
+- [Application developer guide](../technical/application-developers.md)
+
+---
+
+This documentation is licensed under the [MIT License](../../../LICENSE).
+
+---
+
+*Last updated: 2026-09-03*

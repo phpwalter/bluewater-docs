@@ -1,0 +1,71 @@
+### 📘 `rfc/0000-template.md` — RFC Template for Proposals
+
+# 🧾 RFC <000X>: <Short, Descriptive Title> – Bluewater Framework
+
+📄 **File:** `rfc/000X-<short-title>.md`  
+📅 **Proposed:** YYYY-MM-DD  
+🏷️ **Tags:** rfc, <primary-topic>, <secondary-topic>  
+🔖 **Version:** 0.1  
+🌍 **Scope:** <One-sentence summary of the systems or teams affected>  
+🤝 **Contributors:** – <Roles or individuals involved in the proposal>  
+👨‍💻 **Author:** <Author Name>  
+📌 **Status:** Draft  
+
+---
+
+## 🧭 Summary
+
+A brief paragraph explaining what this RFC proposes and why it matters.
+
+---
+
+## 🎯 Motivation
+
+Why is this change needed? What pain does it solve, or what opportunity does it unlock? Include supporting context or examples.
+
+---
+
+## 🧩 Proposed Design
+
+Clearly describe what is being changed or introduced. Include structure, flow, interfaces, tools, APIs, etc.
+
+Code or schema snippets are encouraged where useful.
+
+---
+
+## 🔧 Required Changes
+
+List code or architectural changes expected, including:
+- Affected files, modules, or services
+- Configuration or environment updates
+- New components or abstractions
+
+---
+
+## ⚠️ Alternatives Considered
+
+Describe any alternative designs or ideas, and explain why they weren’t selected.
+
+---
+
+## 📈 Drawbacks
+
+Identify risks, trade-offs, or possible implementation costs.
+
+---
+
+## 🚀 Rollout Plan
+
+How will this proposal be introduced safely?
+- Timeline and phasing (if any)
+- Fallback or rollback strategies
+- Testing or migration steps
+
+---
+
+## 📚 Related Documents
+
+- [Link Title](../architecture/some-file.md)  
+- [Previous RFCs or prototypes](./000X-other-rfc.md)
+
+---

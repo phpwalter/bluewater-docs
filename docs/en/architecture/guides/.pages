@@ -1,0 +1,6 @@
+title: guides
+order:
+  - getting-started.md
+  - docs-guides.md
+  - project-layout.md
+  - usage-examples.md

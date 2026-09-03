@@ -1,0 +1,32 @@
+title: Bluewater Framework – Architecture Index
+version: 1.0
+structure:
+  - title: 🔄 Overview
+    file: overview.md
+  - title: 📜 Policies
+    file: policies.md
+  - title: 📦 Components
+    file: components.md
+  - title: 🧩 Services
+    file: services.md
+  - title: 🧮 Data Architecture
+    file: data.md
+  - title: 🧩 Modules
+    file: modules.md
+  - title: 📡 API Architecture
+    file: api.md
+  - title: 🔐 Security
+    file: security.md
+  - title: 🔑 Secrets & Config
+    file: secrets.md
+  - title: 🧭 Multi-Tenant Architecture
+    file: multi-tenant.md
+  - title: 📤 Deployment Strategy
+    file: deployment.md
+  - title: 🔗 External Integration
+    file: integration.md
+  - title: 🧪 Testing
+    file: testing.md
+  - title: 🔍 Observability
+    file: observability.md
+

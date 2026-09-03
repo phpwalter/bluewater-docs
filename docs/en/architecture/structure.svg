@@ -1,0 +1,38 @@
+<svg width="750" height="680" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="14">
+  <style>
+    .folder { font-weight: bold; fill: #003366; }
+    .file { fill: #444; }
+  </style>
+
+  <!-- Title -->
+  <text x="20" y="30" class="folder">bluewater-project/</text>
+
+  <!-- Top-level folders -->
+  <text x="40" y="60" class="folder">├── app/</text>
+  <text x="40" y="90" class="folder">├── bin/</text>
+  <text x="40" y="120" class="folder">├── cache/</text>
+  <text x="40" y="150" class="folder">├── docs/</text>
+  <text x="40" y="180" class="folder">├── public/</text>
+  <text x="40" y="210" class="folder">├── vendor/</text>
+
+  <!-- Files -->
+  <text x="40" y="240" class="file">├── .env</text>
+  <text x="40" y="270" class="file">├── composer.json</text>
+  <text x="40" y="300" class="file">└── README.md</text>
+
+  <!-- app/ substructure -->
+  <text x="80" y="330" class="folder">├── common/</text>
+  <text x="80" y="360" class="folder">├── clientA/</text>
+  <text x="80" y="390" class="folder">└── clientB/</text>
+
+  <!-- vendor/ framework core -->
+  <text x="80" y="420" class="folder">vendor/</text>
+  <text x="100" y="450" class="folder">└── bluewater/framework/</text>
+  <text x="120" y="480" class="folder">└── src/Bluewater/</text>
+  <text x="140" y="510" class="folder">├── Router/</text>
+  <text x="140" y="540" class="folder">├── Dispatcher/</text>
+  <text x="140" y="570" class="folder">├── Middleware/</text>
+  <text x="140" y="600" class="folder">├── Responder/</text>
+  <text x="140" y="630" class="folder">├── Logger/</text>
+  <text x="140" y="660" class="folder">└── Security/</text>
+</svg>

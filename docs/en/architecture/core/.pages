@@ -1,0 +1,9 @@
+title: core
+order:
+  - core-modules.md
+  - config.md
+  - dispatcher.md
+  - middleware.md
+  - responder.md
+  - router.md
+  - logger.md

@@ -1,0 +1,25 @@
+site_name: Bluewater Documentation
+docs_dir: docs
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Architecture:
+      - System Overview: architecture/system-overview.md
+      - Module Breakdown: architecture/modules.md
+      - Multi-Tenant Design: architecture/multi-tenant.md
+      - Security Principles: architecture/security.md
+  - Technical:
+      - Getting Started: technical/getting-started.md
+      - Configuration Guide: technical/configuration.md
+      - Extension & Integration: technical/extending.md
+      - Deployment & Operations: technical/deployment.md
+      - FAQ & Troubleshooting: technical/faq.md
+  - API Reference:
+      - API Docs Home: phpdoc/index.html
+      - Class Reference: phpdoc/classes/index.html
+  - Contributing: ../CONTRIBUTING.md
+  - Code of Conduct: ../CODE_OF_CONDUCT.md
+  - Security Policy: ../SECURITY.md

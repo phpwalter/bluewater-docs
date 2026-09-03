@@ -1,0 +1,17 @@
+nav:
+  - Home: index.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - Policies: architecture/policies.md
+      - Components: architecture/components.md
+      - Services: architecture/services.md
+      - Data Architecture: architecture/data.md
+      - Modules: architecture/modules.md
+      - API Architecture: architecture/api.md
+      - Security: architecture/security.md
+      - Secrets & Config: architecture/secrets.md
+      - Multi-Tenant Architecture: architecture/multi-tenant.md
+      - Deployment Strategy: architecture/deployment.md
+      - External Integration: architecture/integration.md
+      - Testing: architecture/testing.md
+      - Observability: architecture/observability.md

@@ -1,0 +1,90 @@
+### 📘 `rfc/0001-event-bus.md` — Introduce Event Bus for Service Communication
+
+# 📨 RFC 0001: Event Bus Architecture – Bluewater Framework
+
+📄 **File:** `rfc/0001-event-bus.md`  
+📅 **Proposed:** 2025-06-07  
+🏷️ **Tags:** rfc, messaging, architecture  
+🔖 **Version:** 0.1  
+🌍 **Scope:** Introduce a central event bus to decouple and scale internal service-to-service communication  
+🤝 **Contributors:** – Service engineers, infrastructure maintainers, platform architects  
+👨‍💻 **Author:** Walter Torres  
+📌 **Status:** Draft  
+
+---
+
+## 🧭 Summary
+
+This RFC proposes introducing an internal **event bus** system for asynchronous communication across services within the Bluewater Framework. It aims to reduce service coupling, improve resilience, and enable event-driven patterns like CQRS and auditing.
+
+---
+
+## 🎯 Motivation
+
+- Synchronous HTTP communication between services is tightly coupled and brittle under load.
+- Events already occur across services (auth, tenant onboard, file processed) but lack standardization.
+- Auditing and observability benefit from structured event logging and propagation.
+
+---
+
+## 🧩 Proposed Design
+
+- Use a lightweight message broker (e.g., **NATS**, **RabbitMQ**, or **Kafka-lite**)
+- Define a common `EventEnvelope` format
+- Services publish/subscribe via adapters (via `/app/events/`)
+- All events are tagged with `trace_id`, `tenant_id`, `timestamp`, `source`, and `type`
+
+```json
+{
+  "trace_id": "abc123",
+  "tenant_id": "clientA",
+  "timestamp": "2025-06-07T10:00Z",
+  "source": "auth-service",
+  "type": "user.signed_in",
+  "payload": { "user_id": 42 }
+}
+````
+
+---
+
+## 🔧 Required Changes
+
+* Create `event-adapter.js` or `eventBus.ts`
+* Define standard event types (e.g., `tenant.created`, `payment.failed`)
+* Add config for broker credentials per environment
+* Enable local dev bus (e.g., NATS dev container)
+
+---
+
+## ⚠️ Alternatives Considered
+
+* ❌ Kafka: overkill for lightweight microservice needs
+* ❌ HTTP callbacks: slower, less reliable, harder to manage at scale
+
+---
+
+## 📈 Drawbacks
+
+* Introduces infrastructure dependency (message broker)
+* Adds complexity to onboarding services
+* Requires clear ownership of critical events
+
+---
+
+## 🚀 Rollout Plan
+
+1. Prototype with `auth-service` and `audit-service`
+2. Expand to onboarding and email modules
+3. Document required event handlers in `/docs/events/`
+4. Monitor latency and retry logic
+
+---
+
+## 📚 Related Documents
+
+* [Service Architecture](../architecture/services.md)
+* [Deployment Strategy](../architecture/deployment.md)
+* [Observability](../architecture/observability.md)
+
+---
+

@@ -1,0 +1,47 @@
+body {
+    font-family: system-ui, sans-serif;
+    margin: 2rem;
+    background-color: #fdfdfd;
+    color: #222;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2rem;
+}
+
+h1, h2 {
+    color: #1e4e8c;
+}
+
+ul, li {
+    margin: 0.3rem 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+details {
+    margin-bottom: 1.2rem;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: #f8f9fa;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter-tags {
+    margin-bottom: 1.5rem;
+}
+
+.filter-tags label {
+    margin-right: 1rem;
+}
+
+.doc-entry {
+    margin-left: 1rem;
+    display: list-item;
+}

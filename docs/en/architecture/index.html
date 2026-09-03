@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📘 Bluewater Documentation</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="index.js"></script>
+</head>
+<body>
+<header>
+  <h1>📘 Bluewater Documentation</h1>
+  <p><strong>Official docs for Bluewater Framework</strong> — a lightweight, high-performance backend PHP framework for modular, multi-tenant REST APIs.</p>
+
+  <p>This site includes:</p>
+  <ul>
+    <li>📐 Architecture & Specs</li>
+    <li>🧱 Core Modules</li>
+    <li>🛡 Security</li>
+    <li>🔁 Multi-Tenant</li>
+    <li>⚙️ CLI Tools</li>
+    <li>🧪 Testing</li>
+    <li>📦 Deployment</li>
+    <li>🔌 Integrations</li>
+    <li>🚧 Roadmap & Meta</li>
+  </ul>
+
+  <p>
+    🌐 <strong>GitHub Pages:</strong><br>
+    <code>https://bluewatermvc.github.io/bluewater-docs/</code>
+  </p>
+</header>
+
+<section class="filter-tags">
+  <strong>🔎 Filter by Tag:</strong><br />
+  <label><input type="checkbox" value="architecture"> Architecture</label>
+  <label><input type="checkbox" value="core"> Core</label>
+  <label><input type="checkbox" value="security"> Security</label>
+  <label><input type="checkbox" value="cli"> CLI</label>
+  <label><input type="checkbox" value="testing"> Testing</label>
+  <label><input type="checkbox" value="deployment"> Deployment</label>
+  <label><input type="checkbox" value="integration"> Integrations</label>
+  <label><input type="checkbox" value="meta"> Meta</label>
+</section>
+
+<main>
+  <main>
+    <details open>
+      <summary>📡 API</summary>
+      <ul>
+        <li class="doc-entry" data-tags="api"><a href="api/openapi.md">OpenAPI Integration</a></li>
+        <li class="doc-entry" data-tags="api"><a href="api/openapi-spec.md">OpenAPI Specifications – OpenAPI v3</a></li>
+        <li class="doc-entry" data-tags="api"><a href="api/rate-limiting.md">Rate Limiting</a></li>
+        <li class="doc-entry" data-tags="api"><a href="api/spec-format.md">Specification Format</a></li>
+        <li class="doc-entry" data-tags="api"><a href="api/versioning.md">Versioning</a></li>
+      </ul>
+    </details>
+
+    <details open>
+      <summary>📐 Architecture</summary>
+      <ul>
+        <li class="doc-entry" data-tags="architecture"><a href="./architecture/architecture.md">Architecture Overview</a></li>
+        <li class="doc-entry" data-tags="architecture"><a href="architecture/specifications.md">Technical Specifications</a></li>
+        <li class="doc-entry" data-tags="architecture"><a href="architecture/structure.md">Project Structure</a></li>
+        <li class="doc-entry" data-tags="architecture"><a href="architecture/multi-tenant.md">Multi-Tenant</a></li>
+        <li class="doc-entry" data-tags="architecture"><a href="architecture/deployment.md">Deployment</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🧱 Core Modules</summary>
+      <ul>
+        <li class="doc-entry" data-tags="core"><a href="core/router.md">Router</a></li>
+        <li class="doc-entry" data-tags="core"><a href="core/dispatcher.md">Dispatcher</a></li>
+        <li class="doc-entry" data-tags="core"><a href="core/responder.md">Responder</a></li>
+        <li class="doc-entry" data-tags="core"><a href="core/logger.md">Logger</a></li>
+        <li class="doc-entry" data-tags="core"><a href="core/config.md">Config</a></li>
+        <li class="doc-entry" data-tags="core"><a href="core/middleware.md">Middleware</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🛡 Security</summary>
+      <ul>
+        <li class="doc-entry" data-tags="security"><a href="security/jwt.md">JWT</a></li>
+        <li class="doc-entry" data-tags="security"><a href="security/oauth.md">OAuth</a></li>
+        <li class="doc-entry" data-tags="security"><a href="security/nextgen.md">Next-Gen Security</a></li>
+        <li class="doc-entry" data-tags="security"><a href="rate-limiting.md">Rate Limiting</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>⚙️ CLI Tooling</summary>
+      <ul>
+        <li class="doc-entry" data-tags="cli"><a href="cli/cli-tooling.md">CLI Commands</a></li>
+        <li class="doc-entry" data-tags="cli"><a href="cli/docs-guides.md">Developer Usage</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🧪 Testing</summary>
+      <ul>
+        <li class="doc-entry" data-tags="testing"><a href="testing/testing.md">Testing Strategy</a></li>
+        <li class="doc-entry" data-tags="testing"><a href="testing/unit-testing.md">Unit Testing</a></li>
+        <li class="doc-entry" data-tags="testing"><a href="testing/integration-testing.md">Integration Testing</a></li>
+        <li class="doc-entry" data-tags="testing"><a href="testing/mocking.md">Mocking</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🔌 Integrations</summary>
+      <ul>
+        <li class="doc-entry" data-tags="integration"><a href="integrations/logging.md">Logging</a></li>
+        <li class="doc-entry" data-tags="integration"><a href="integrations/cache.md">Cache</a></li>
+        <li class="doc-entry" data-tags="integration"><a href="integrations/queues.md">Queues</a></li>
+        <li class="doc-entry" data-tags="integration"><a href="integrations/monitoring.md">Monitoring</a></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🚧 Roadmap & Meta</summary>
+      <ul>
+        <li class="doc-entry" data-tags="meta"><a href="roadmap.md">Project Roadmap</a></li>
+        <li class="doc-entry" data-tags="meta"><a href="release.md">Release</a></li>
+        <li class="doc-entry" data-tags="meta"><a href="CONTRIBUTING.md">Contributing</a></li>
+        <li class="doc-entry" data-tags="meta"><a href="faq.md">FAQ</a></li>
+        <li class="doc-entry" data-tags="meta"><a href="troubleshooting.md">Troubleshooting</a></li>
+        <li class="doc-entry" data-tags="meta"><a href="license.md">License</a></li>
+      </ul>
+    </details>
+  </main>
+
+</main>
+</body>
+</html>

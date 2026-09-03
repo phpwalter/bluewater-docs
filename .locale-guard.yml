@@ -21,6 +21,7 @@ translations:
 
 files:
   include:
+    - "*.md"
     - "**/*.md"
   exclude:
     - "_generated/**"

@@ -7,6 +7,12 @@ docs_dir: en
 site_dir: ../site
 strict: true
 
+# LocaleGuard links translated source files outside this English-only docs_dir.
+# tools/check-docs.py validates those repository-local links as hard failures.
+validation:
+  links:
+    not_found: info
+
 theme:
   name: material
   language: en
